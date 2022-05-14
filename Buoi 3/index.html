@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buoi 3</title>
+</head>
+<body>
+
+
+    <!-- JS -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js"></script> -->
+    <script src="moment.min.js"></script>
+    <script>
+        // Khai bao doi tuong
+        var sinhVien = {
+            id: 'PH123456',
+            name: 'Nguyen Van A',
+            ngayNhapHoc: '10/10/2019',
+            showInfo: function () {
+                // Chỉ thực hiện công việc log chứ không trả về gtrị
+                return ('Họ tên: ' + this.name);
+            },
+            updateInfo: function (newName) {
+                this.name = newName;
+            },
+            kiemTraTotNghiep: function () {
+                // Thời điểm hiện tại là lúc nào
+                var hientai = moment();
+                // Từ ngày nhập học -> thời điểm hiện tại là bn tháng
+                var ngayNhapHocMoment = moment(this.ngayNhapHoc, 'DD/MM/YYYY');
+                var chenhLechThang = hientai.diff(ngayNhapHocMoment, 'months');
+                var soThangTotNghiep = 28;
+                // Kiểm tra với số 28 (số tháng học)
+                // Nếu > 28: đã tốt nghiệp
+                if (chenhLechThang > soThangTotNghiep) {
+                    return 'Đã tốt nghiệp';
+                }
+                // Nếu > 0 hoặc < 28: đang học
+                if (chenhLechThang > 0 && chenhLechThang <= 28) {
+                    return 'Đang học';
+                }
+
+                // Nếu < 0: chưa nhập học
+                return 'Chưa nhập học';
+            }
+        };
+        console.log(sinhVien.kiemTraTotNghiep());
+        // console.log('Thuc hien cong viec showInfo:', sinhVien.showInfo()); //undefined nếu không return
+        sinhVien.id = 'PH123457';
+
+        // console.log(sinhVien.name);
+        sinhVien.updateInfo('Nguyen Van B');
+        // console.log(sinhVien.name);
+
+        // Giá trị thời gian ở hiện tại
+        var now = moment();
+        // Nếu truyền giá trị thời gian kèm format thì sẽ
+        // trả ra đối tượng Moment của thời gian tương ứng
+        var nhaphoc = moment('10/10/2021', 'DD/MM/YYYY');
+        // Format thời gian qua biến now
+        console.log(now.diff(nhaphoc, 'months')); // days, months, years
+    </script>
+</body>
+</html>

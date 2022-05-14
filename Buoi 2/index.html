@@ -97,5 +97,41 @@
             return kqBai2.innerHTML = 'Có chứa abc';
         }
     </script>
+    <script>
+        // Bai 4
+        var numberArray = [1, 3, 5, 10, 20];
+        // for
+        var outputArray = [];
+        for(i = 0; i < numberArray.length; i++) {
+            if (numberArray[i] % 2 == 0) {
+                outputArray.push(numberArray[i]);
+            }
+        }
+        console.log(outputArray);
+
+        // map
+        var output2 = numberArray.map(function (value, index) {
+            if (value % 2 == 0) {
+                return value;
+            }
+        });
+        console.log('output2', output2);
+        // filter
+        var output3 = numberArray.filter(function (value, index) {
+            if (value % 2 == 0) {
+                return value;
+            }
+        });
+        console.log('output3', output3);
+
+        sumArray = numberArray.map(function (value, index) {
+            return value + 5;
+        })
+        // sumArray1 = numberArray.map((value, index) => {
+        //     return value + 5;
+        // })
+        // sumArray2 = numberArray.map((value, index) => value + 5);
+        console.log(sumArray);
+    </script>
 </body>
 </html>
