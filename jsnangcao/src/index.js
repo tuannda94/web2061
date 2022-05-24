@@ -1,15 +1,32 @@
+import Navigo from '../node_modules/navigo';
+// import Navigo from 'navigo';
 import Header from './components/Header';
 import Footer from './components/Footer';
-// import bootstrap;
+import Home from './pages/Home';
+import About from './pages/About';
+import News from './pages/News';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function render () {
-    document.querySelector('#header').innerHTML = '<button class="btn btn-primary">Test</button>';
+// Khởi tạo đối tượng router
+const router = new Navigo('/', {linksSelector: 'a'});
 
-    // document.querySelector('#header').innerHTML = Header.render();
-    document.querySelector('#content').innerHTML = '<div>Content</div>';
+function render (content) {
+    document.querySelector('#header').innerHTML = Header.render();
+    document.querySelector('#content').innerHTML = content;
     document.querySelector('#footer').innerHTML = Footer.render();
 }
+
+router.on({
+    '/': () => render(Home.render()),
+    '/about': () => render(About.render()),
+    '/news': () => render(News.render()),
+});
+router.resolve();
+
+// render();
+
+// --------------------------------
+
 
 // arrow function: const ten_ham = () => {};
 const arrowRender = () => {
@@ -27,5 +44,3 @@ const sum1 = (a, b) => {
 const sum2 = (a, b) => a+b; // nếu chỉ có return
 
 const display = a => console.log(a); // nếu chỉ có 1 tham số
-
-render();
