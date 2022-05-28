@@ -7,7 +7,7 @@ const News = {
             `<div>
                 ${tin.content}
             </div>`
-        ))
+        )).join('')
     }</div>`,
 
     // render: function () {
