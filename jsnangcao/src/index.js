@@ -7,10 +7,12 @@ import About from './pages/About';
 import News from './pages/News';
 import Student from './pages/Student';
 import StudentDetail from './pages/StudentDetail';
+import StudentAdd from './pages/StudentAdd';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Khởi tạo đối tượng router
-const router = new Navigo('/', {linksSelector: 'a'});
+const router = new Navigo('/', { linksSelector: 'a' });
 
 const render = async (content, id) => {
     // content sẽ là toàn bộ component
@@ -31,6 +33,7 @@ router.on({
     '/news': () => render(News),
     '/students': () => render(Student),
     '/students/:id': (data) => render(StudentDetail, data.data.id),
+    '/students/add': () => render(StudentAdd)
 });
 router.resolve();
 
@@ -49,12 +52,12 @@ const arrowRender = () => {
 const s = () => 2 + 3;
 
 function sum(a, b) {
-    return a+b;
+    return a + b;
 }; // cú pháp thông thường
 const sum1 = (a, b) => {
-    return a+b;
+    return a + b;
 }; // arrow function có return
-const sum2 = (a, b) => a+b; // nếu chỉ có return
+const sum2 = (a, b) => a + b; // nếu chỉ có return
 
 const display = a => console.log(a); // nếu chỉ có 1 tham số
 const display1 = a => alert(a);

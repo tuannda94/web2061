@@ -56,6 +56,7 @@ const Student = {
                 // window.location.reload();
                 await reRender('#content', Student);
             });
+
         });
     }
 };
