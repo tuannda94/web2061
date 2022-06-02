@@ -23,7 +23,7 @@ const render = async (content, id) => {
     if (content.afterRender) {
         content.afterRender();
     }
-}
+};
 
 router.on({
     '/': () => render(Home),
