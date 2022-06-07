@@ -30,6 +30,9 @@ const Student = {
                             <a href="/students/${student.id}">
                                 <button class='btn btn-info'>Chi tiet</button>
                             </a>
+                            <a href="/students/edit/${student.id}">
+                                <button class='btn btn-warning'>Chinh sua</button>
+                            </a>
                             <button
                                 class='btn btn-danger'
                                 data-id="${student.id}"

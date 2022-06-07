@@ -25,7 +25,7 @@ const render = async (content, id) => {
 
     // Sau khi content đã render xong thì afterRender mới được chạy
     if (content.afterRender) {
-        content.afterRender();
+        content.afterRender(id);
     }
 };
 
@@ -35,7 +35,8 @@ router.on({
     '/news': () => render(News),
     '/students': () => render(Student),
     '/students/:id': (data) => render(StudentDetail, data.data.id),
-    '/students/add': () => render(StudentAdd)
+    '/students/add': () => render(StudentAdd),
+    '/students/edit/:id': (data) => render(StudentAdd, data.data.id),
 });
 router.resolve();
 
