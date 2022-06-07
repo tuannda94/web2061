@@ -1,4 +1,4 @@
-import Navigo from '../node_modules/navigo';
+// import Navigo from '../node_modules/navigo';
 // import Navigo from 'navigo';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -12,7 +12,9 @@ import StudentAdd from './pages/StudentAdd';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Khởi tạo đối tượng router
-const router = new Navigo('/', { linksSelector: 'a' });
+// const router = new Navigo('/', { linksSelector: 'a' });
+// router.navigate('/students');
+import router from './helpers/router';
 
 const render = async (content, id) => {
     // content sẽ là toàn bộ component

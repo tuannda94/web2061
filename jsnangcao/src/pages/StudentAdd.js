@@ -1,3 +1,6 @@
+import { createStudent } from "../api/student";
+import router from "../helpers/router";
+
 const StudentAdd = {
     render: () => {
         return (
@@ -16,15 +19,15 @@ const StudentAdd = {
                         <input class='form-control' id='avatar' />
                     </div>
                     <div class='form-group'>
-                        <button type='button' class='btn btn-success'>Tạo mới</button>
+                        <button type='button' class='btn btn-success' id='btn'>Tạo mới</button>
                     </div>
                 </form>
             </div>`
         )
     },
     afterRender: () => {
-        const submitBtn = document.querySelector('.btn');
-        submitBtn.addEventListener('click', () => {
+        const submitBtn = document.querySelector('#btn');
+        submitBtn.addEventListener('click', async () => {
             const name = document.querySelector('#name').value;
             const msv = document.querySelector('#msv').value;
             const avatar = document.querySelector('#avatar').value;
@@ -34,7 +37,9 @@ const StudentAdd = {
                 msv: msv,
                 avatar: avatar,
             };
-            // createStudent(submitData);
+
+            await createStudent(submitData);
+            router.navigate('/students');
         });
     }
 };
