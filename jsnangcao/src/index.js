@@ -15,6 +15,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // const router = new Navigo('/', { linksSelector: 'a' });
 // router.navigate('/students');
 import router from './helpers/router';
+import CartDetail from './pages/CartDetail';
 
 const render = async (content, id) => {
     // content sẽ là toàn bộ component
@@ -37,6 +38,7 @@ router.on({
     '/students/:id': (data) => render(StudentDetail, data.data.id),
     '/students/add': () => render(StudentAdd),
     '/students/edit/:id': (data) => render(StudentAdd, data.data.id),
+    '/cart-detail': () => render(CartDetail)
 });
 router.resolve();
 
