@@ -1,8 +1,7 @@
-import api from './axios';
-
+import api, {privateAxios} from './axios';
 const prefix = '/students';
 
-export const getStudents = () => api.get(prefix);
+export const getStudents = () => privateAxios.get();
 
 export const getStudent = (id) => api.get(`${prefix}/${id}`);
 
