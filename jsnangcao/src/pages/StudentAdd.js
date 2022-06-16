@@ -41,6 +41,9 @@ const StudentAdd = {
                             id='avatar'
                         />
                     </div>
+                    <div>
+                        <img id="show-avatar" />
+                    </div>
                     <div class='form-group'>
                         <button type='button' class='btn btn-success' id='btn'>
                             ${id ? 'Cập nhật' : 'Tạo mới'}
@@ -71,6 +74,16 @@ const StudentAdd = {
             }
 
             router.navigate('/students');
+        });
+
+        const avatarElement = document.querySelector('#avatar');
+        avatarElement.addEventListener('input', () => {
+            const avatarValue = avatarElement.value;
+
+            const imgElement = document.querySelector('#show-avatar');
+            imgElement.src = avatarValue;
+            imgElement.width = 100;
+            imgElement.height = 100;
         });
     }
 };
